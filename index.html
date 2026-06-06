@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavithra | CSBS Student Journal</title>
+    <meta name="description" content="A realistic digital scrapbook documenting Pavithra's journey as a Computer Science & Business Systems student.">
+    
+    <!-- Google Fonts: Playfair Display for headers, Outfit, Caveat for envelope, Patrick Hand for notebook -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Outfit:wght@300;400;500;600;700&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playpen+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" type="module"></script>
+</head>
+<body>
+
+    <!-- Subtle paper desk overlay for tactile texture -->
+    <div class="desk-surface-overlay"></div>
+
+    <!-- Header navigation sitting on the top right -->
+    <header class="scrapbook-header">
+        <nav class="header-nav">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#memories">Memories</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- SECTION 1: HERO & ABOUT (The Notebook spread layout) -->
+    <section id="about" class="about-section">
+        <!-- Top Left Typing Header -->
+        <div class="hero-typing-container">
+            <h1 class="hero-title"><span class="title-text"></span><span class="cursor">|</span></h1>
+            <p class="hero-role"><span class="role-text"></span><span class="cursor" style="display:none">|</span></p>
+        </div>
+
+        <!-- Custom Hand-Drawn Stickers (drawn as inline SVGs to match photos 2 & 3) -->
+        <div class="notebook-stickers-container">
+            <!-- Sketchy Star Cat (Sticker 1) -->
+            <div class="notebook-sticker sticker-cat" id="stickerCat">
+                <svg viewBox="0 0 100 120" width="85" height="102" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Cat Body Silhouette Outline -->
+                    <path d="M 30,110 C 25,110 20,105 20,95 C 20,80 28,60 35,50 C 32,40 32,25 35,15 C 36,12 39,12 41,17 C 44,22 49,22 51,17 C 53,12 56,12 57,15 C 60,25 60,40 57,50 C 64,60 72,80 72,95 C 72,105 67,110 62,110 Z" />
+                    <!-- Tail -->
+                    <path d="M 62,110 C 75,110 85,95 85,80 C 85,75 80,75 80,80 C 80,90 73,100 62,100" />
+                    <!-- Eyes & Whiskers -->
+                    <circle cx="41" cy="32" r="1.5" fill="#3e3835" />
+                    <circle cx="51" cy="32" r="1.5" fill="#3e3835" />
+                    <path d="M 46,36 L 44,38 L 48,38 Z" fill="#3e3835" />
+                    <path d="M 32,36 L 22,35 M 32,39 L 20,40 M 60,36 L 70,35 M 60,39 L 72,40" />
+                    <!-- Star Patterns inside Cat -->
+                    <path d="M 35,70 L 37,73 L 41,73 L 38,75 L 39,79 L 35,76 L 31,79 L 32,75 L 29,73 L 33,73 Z" fill="#3e3835" stroke-width="1" />
+                    <path d="M 55,85 L 56,87 L 59,87 L 57,89 L 58,92 L 55,90 L 52,92 L 53,89 L 51,87 L 54,87 Z" fill="#3e3835" stroke-width="1" />
+                    <path d="M 45,60 L 46,61 L 48,61 L 47,62 L 47,64 L 45,63 L 43,64 L 44,62 L 43,61 L 45,61 Z" fill="#3e3835" stroke-width="1" />
+                </svg>
+            </div>
+
+            <!-- Sketchy Stars -->
+            <div class="notebook-sticker sticker-star-spiral" id="stickerSpiral">
+                <svg viewBox="0 0 100 100" width="75" height="75" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50,5 L 62,35 L 95,35 L 68,55 L 78,88 L 50,68 L 22,88 L 32,55 L 5,35 L 38,35 Z" />
+                    <path d="M 50,50 A 8,8 0 1,0 42,48 A 4,4 0 1,0 45,43" />
+                </svg>
+            </div>
+
+            <div class="notebook-sticker sticker-star-wobbly" id="stickerWobbly1">
+                <svg viewBox="0 0 100 100" width="65" height="65" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50,8 Q 58,38 90,42 Q 60,55 58,88 Q 44,60 10,54 Q 40,42 50,8 Z" />
+                </svg>
+            </div>
+
+            <div class="notebook-sticker sticker-star-outlined" id="stickerOutlined">
+                <svg viewBox="0 0 100 100" width="65" height="65" fill="none" stroke="#3e3835" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50,8 L 61,38 L 92,38 L 67,56 L 77,86 L 50,68 L 23,86 L 33,56 L 8,38 L 39,38 Z M 50,22 L 57,43 L 80,43 L 61,56 L 68,77 L 50,64 L 32,77 L 39,56 L 20,43 L 43,43 Z" />
+                </svg>
+            </div>
+
+            <div class="notebook-sticker sticker-star-doodle" id="stickerDoodle">
+                <svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="#3e3835" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50,10 C 50,35 65,50 90,50 C 65,50 50,65 50,90 C 50,65 35,50 10,50 C 35,50 50,35 50,10 Z" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="notebook-container">
+            <!-- Silver Spiral Binding -->
+            <div class="notebook-spiral-spine">
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+                <div class="spiral-loop"></div>
+            </div>
+            
+            <!-- Distressed cover container backgrounds -->
+            <div class="notebook-cover-left"></div>
+            <div class="notebook-cover-right"></div>
+            
+            <div class="notebook-spread">
+                <!-- Left Page: Two Stacked Tilted Polaroid Photos -->
+                <div class="notebook-page page-left">
+                    <div class="notebook-page-content">
+                        <div class="photo-tape-container">
+                            <!-- Photo 1: Stadium Portrait (Top) -->
+                            <div class="polaroid-photo polaroid-top">
+                                <div class="washi-tape tape-horizontal tape-pink"></div>
+                                <div class="photo-develop-overlay"></div>
+                                <img src="assets/profile_stadium.jpg" alt="Pavithra Stadium" onerror="this.src='assets/profile.jpg'">
+                            </div>
+                            
+                            <!-- Photo 2: Mountain Portrait (Bottom) -->
+                            <div class="polaroid-photo polaroid-bottom">
+                                <div class="washi-tape tape-horizontal tape-yellow"></div>
+                                <div class="photo-develop-overlay"></div>
+                                <img src="assets/profile_about.jpg" alt="Pavithra Hills" onerror="this.src='assets/profile.jpg'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Page: Patrick Hand Handwriting text content -->
+                <div class="notebook-page page-right">
+                    <div class="notebook-page-content handwritten">
+                        <h2 class="notebook-heading">hi!</h2>
+                        <p class="notebook-p">
+                            I'm a computer science and business systems student, passionate about developing software designs that make a real impact and are built to be used.
+                        </p>
+                        <p class="notebook-p">
+                            My course bridges technical software engineering with business strategies.
+                        </p>
+                        <p class="notebook-p">
+                            My goal is to build a strong foundation, gain exposure to different areas, and gradually discover where I want to specialize. Always learning and motivated to grow until I find my niche in tech.
+                        </p>
+                        
+                        <div class="notebook-actions">
+                            <a href="resume.pdf" class="btn btn-outline" target="_blank">Resume <span>→</span></a>
+                            <a href="#contact" class="btn btn-outline">Contact <span>→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: EDUCATION (School & Key Areas of Study) -->
+    <section id="education" class="education-section">
+        <div class="section-header reveal-on-scroll">
+            <div class="swirl-wrapper">
+                <!-- Wobbly Swirl Left -->
+                <svg class="title-swirl" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+                <h2 class="section-title">education</h2>
+                <!-- Wobbly Swirl Right -->
+                <svg class="title-swirl swirl-flipped" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="education-container">
+            <!-- Stickers & Sprinkles around education card -->
+            <div class="education-decorations">
+                <!-- Bow Sticker -->
+                <div class="education-sticker sticker-bow">
+                    <svg viewBox="0 0 100 80" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 50,40 C 35,10 10,15 25,40 C 35,55 45,45 50,40 Z" />
+                        <path d="M 50,40 C 65,10 90,15 75,40 C 65,55 55,45 50,40 Z" />
+                        <circle cx="50" cy="40" r="4" fill="#3e3835" />
+                        <path d="M 48,42 C 40,55 25,70 30,75 C 32,77 40,65 47,45" />
+                        <path d="M 52,42 C 60,55 75,70 70,75 C 68,77 60,65 53,45" />
+                    </svg>
+                </div>
+                <!-- Star Sprinkle -->
+                <div class="education-sticker sticker-star">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 50,10 C 50,35 65,50 90,50 C 65,50 50,65 50,90 C 50,65 35,50 10,50 C 35,50 50,35 50,10 Z" />
+                    </svg>
+                </div>
+                <!-- Flower Sprinkle -->
+                <div class="education-sticker sticker-flower">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="50" cy="50" r="6" fill="#3e3835" />
+                        <path d="M 50,38 C 44,38 42,46 50,46 C 58,46 56,38 50,38 Z" fill="none" />
+                        <path d="M 50,62 C 44,62 42,54 50,54 C 58,54 56,62 50,62 Z" fill="none" />
+                        <path d="M 38,50 C 38,44 46,42 46,50 C 46,58 38,56 38,50 Z" fill="none" />
+                        <path d="M 62,50 C 62,44 54,42 54,50 C 54,58 62,56 62,50 Z" fill="none" />
+                        <path d="M 42,42 C 37,47 45,51 45,45 Z" />
+                        <path d="M 58,58 C 63,53 55,49 55,55 Z" />
+                        <path d="M 58,42 C 63,47 55,51 55,45 Z" />
+                        <path d="M 42,58 C 37,53 45,49 45,55 Z" />
+                    </svg>
+                </div>
+                <!-- Heart Sticker -->
+                <div class="education-sticker sticker-heart">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 50,30 C 60,10 90,15 90,45 C 90,70 65,85 50,90 C 35,85 10,70 10,45 C 10,15 40,10 50,30 Z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="education-paper-scrap reveal-on-scroll">
+                <div class="washi-tape tape-horizontal tape-pink"></div>
+                
+                <div class="education-spread">
+                    <!-- Left Column: School details -->
+                    <div class="education-info">
+                        <h3 class="college-name">Rajalakshmi Engineering College</h3>
+                        <p class="college-loc">Chennai, Tamil Nadu</p>
+                        <div class="degree-badge">B.Tech. Computer Science and Business Systems</div>
+                        <p class="duration">2024 – 2028</p>
+                        
+                        <div class="cgpa-box">
+                            <span class="cgpa-label">CGPA</span>
+                            <span class="cgpa-value">8.31</span>
+                        </div>
+                        
+                        <p class="edu-desc">
+                            Consistently improving across semesters while building a strong foundation in computer science, software development, and problem-solving.
+                        </p>
+                    </div>
+                    
+                    <!-- Right Column: Subjects list -->
+                    <div class="education-subjects">
+                        <h4 class="subjects-title">Key Areas of Study</h4>
+                        <ul class="subjects-list">
+                            <li><span>•</span> Data Structures & Algorithms</li>
+                            <li><span>•</span> Object-Oriented Programming (Java)</li>
+                            <li><span>•</span> Database Technology</li>
+                            <li><span>•</span> Operating Systems</li>
+                            <li><span>•</span> Software Engineering</li>
+                            <li><span>•</span> Analysis and Design of Algorithms</li>
+                            <li><span>•</span> Computer Organization & Architecture</li>
+                            <li><span>•</span> Formal Languages and Automata Theory</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: BEYOND THE CLASSROOM (Memories collage with swirly header lines) -->
+    <section id="memories" class="memories-section">
+        <div class="memories-section-header reveal-on-scroll">
+            <div class="swirl-wrapper">
+                <!-- Wobbly Swirl Left -->
+                <svg class="title-swirl" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+                <h2 class="section-title">beyond the classroom</h2>
+                <!-- Wobbly Swirl Right -->
+                <svg class="title-swirl swirl-flipped" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Stickers around memories -->
+        <div class="memories-decorations">
+            <div class="memories-sticker sticker-bow">
+                <svg viewBox="0 0 100 80" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50,40 C 35,10 10,15 25,40 C 35,55 45,45 50,40 Z" />
+                    <path d="M 50,40 C 65,10 90,15 75,40 C 65,55 55,45 50,40 Z" />
+                    <circle cx="50" cy="40" r="4" fill="#3e3835" />
+                    <path d="M 48,42 C 40,55 25,70 30,75 C 32,77 40,65 47,45" />
+                    <path d="M 52,42 C 60,55 75,70 70,75 C 68,77 60,65 53,45" />
+                </svg>
+            </div>
+            <div class="memories-sticker sticker-flower">
+                <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="50" cy="50" r="6" fill="#3e3835" />
+                    <path d="M 50,38 C 44,38 42,46 50,46 C 58,46 56,38 50,38 Z" fill="none" />
+                    <path d="M 50,62 C 44,62 42,54 50,54 C 58,54 56,62 50,62 Z" fill="none" />
+                    <path d="M 38,50 C 38,44 46,42 46,50 C 46,58 38,56 38,50 Z" fill="none" />
+                    <path d="M 62,50 C 62,44 54,42 54,50 C 54,58 62,56 62,50 Z" fill="none" />
+                    <path d="M 42,42 C 37,47 45,51 45,45 Z" />
+                    <path d="M 58,58 C 63,53 55,49 55,55 Z" />
+                    <path d="M 58,42 C 63,47 55,51 55,45 Z" />
+                    <path d="M 42,58 C 37,53 45,49 45,55 Z" />
+                </svg>
+            </div>
+            <div class="memories-sticker sticker-arrow">
+                <svg viewBox="0 0 100 100" fill="none" stroke="#ff5c8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 10,20 Q 50,15 80,60" />
+                    <path d="M 65,55 L 80,60 L 75,45" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Scrapbook paper collage canvas (Clean warm canvas) -->
+        <div class="scrapbook-collage-canvas">
+            
+            <!-- CLUSTER 1: VIT Void Hackathon (Top Left) -->
+            <div class="memory-cluster cluster-void reveal-on-scroll" style="--cluster-top: 5%; --cluster-left: 5%;" onclick="openMemoryModal(0)">
+                <div class="polaroid-card" style="transform: rotate(-3deg);">
+                    <div class="washi-tape tape-horizontal tape-pink"></div>
+                    <div class="polaroid-img">
+                        <img src="assets/hackathon1_1.jpg" alt="Void Hackathon Review" onerror="this.src='https://api.dicebear.com/7.x/identicon/svg?seed=hack1'">
+                    </div>
+                    <div class="polaroid-label">Void Hackathon</div>
+                </div>
+                <!-- Overlapping Sticky Note (No Emojis) -->
+                <div class="sticky-note sticky-yellow" style="transform: rotate(5deg);">
+                    <div class="washi-tape tape-diagonal tape-yellow" style="top: -10px; left: -10px; width: 60px;"></div>
+                    <div class="sticky-tag">Chennai</div>
+                    <h3>Void Hackathon</h3>
+                    <p>Secured Top 5 in Fintech track! We built expense tracker modules and coded fun interactive games.</p>
+                    <div class="sticky-footer">2 AM review!</div>
+                </div>
+            </div>
+
+            <!-- CLUSTER 2: Presidency National Hackathon (Bottom Left) -->
+            <div class="memory-cluster cluster-presidency reveal-on-scroll" style="--cluster-top: 46%; --cluster-left: 2%;" onclick="openMemoryModal(1)">
+                <div class="polaroid-card" style="transform: rotate(4deg);">
+                    <div class="washi-tape tape-horizontal tape-lavender"></div>
+                    <div class="polaroid-img">
+                        <img src="assets/hackathon2_2.jpg" alt="PU Coding Session" onerror="this.src='https://api.dicebear.com/7.x/identicon/svg?seed=hack2'">
+                    </div>
+                    <div class="polaroid-label">National Hackathon</div>
+                </div>
+                <!-- Overlapping Sticky Note -->
+                <div class="sticky-note sticky-pink" style="transform: rotate(-3deg);">
+                    <div class="washi-tape tape-diagonal-right tape-pink" style="top: -10px; right: -10px; width: 60px;"></div>
+                    <div class="sticky-tag">Bengaluru</div>
+                    <h3>National Hackathon</h3>
+                    <p>Preventive Healthcare Platform: Built women's health layouts and forgot to eat lunch all day.</p>
+                    <div class="sticky-footer">Coded all day!</div>
+                </div>
+            </div>
+
+            <!-- CLUSTER 3: Smart India Hackathon (Top Right) -->
+            <div class="memory-cluster cluster-sih reveal-on-scroll" style="--cluster-top: 4%; --cluster-left: 53%;" onclick="openMemoryModal(2)">
+                <div class="polaroid-card" style="transform: rotate(-4deg);">
+                    <div class="washi-tape tape-diagonal tape-sage"></div>
+                    <div class="polaroid-img">
+                        <img src="assets/hackathon3.jpg" alt="SIH Code Screen" onerror="this.src='https://api.dicebear.com/7.x/identicon/svg?seed=hack3'">
+                    </div>
+                    <div class="polaroid-label">SIH Internal Round</div>
+                </div>
+                <!-- Overlapping Sticky Note -->
+                <div class="sticky-note sticky-blue" style="transform: rotate(2deg);">
+                    <div class="washi-tape tape-horizontal tape-blue" style="top: -12px;"></div>
+                    <div class="sticky-tag">Chennai</div>
+                    <h3>Smart India Hackathon</h3>
+                    <p>Built DBT Awareness platform and survived a 36-hour coding marathon.</p>
+                    <div class="sticky-footer">36h Sprint!</div>
+                </div>
+            </div>
+
+            <!-- CLUSTER 4: Smart Attendance (Bottom Right) -->
+            <div class="memory-cluster cluster-attendance reveal-on-scroll" style="--cluster-top: 48%; --cluster-left: 50%;" onclick="openMemoryModal(3)">
+                <div class="polaroid-card" style="transform: rotate(3deg);">
+                    <div class="washi-tape tape-horizontal tape-yellow"></div>
+                    <div class="polaroid-img">
+                        <img src="assets/hackathon4.png" alt="Smart Attendance System" onerror="this.src='https://api.dicebear.com/7.x/identicon/svg?seed=hack4'">
+                    </div>
+                    <div class="polaroid-label">First Hackathon</div>
+                </div>
+                <!-- Overlapping Sticky Note -->
+                <div class="sticky-note sticky-yellow" style="transform: rotate(-5deg);">
+                    <div class="washi-tape tape-diagonal tape-pink" style="top: -12px; left: -10px; width: 60px;"></div>
+                    <div class="sticky-tag">Chennai</div>
+                    <h3>Smart Attendance</h3>
+                    <p>Webcam-based attendance automation prototype using face recognition concepts.</p>
+                    <div class="sticky-footer">My 1st ever!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unfolding letter modal (No Emojis, No signatures) -->
+        <div id="memoryModal" class="modal-overlay" onclick="closeMemoryModal(event)">
+            <div class="letter-container" onclick="event.stopPropagation()">
+                <div class="letter-envelope-back"></div>
+                <div class="letter-paper">
+                    <div class="letter-close-btn" onclick="closeMemoryModal(event)">×</div>
+                    <div class="letter-header">
+                        <span class="letter-date" id="modalDate">June 2026</span>
+                        <h2 class="letter-title" id="modalTitle">Hackathon Event</h2>
+                        <div class="letter-location" id="modalLocation">Location</div>
+                    </div>
+                    <hr class="letter-divider">
+                    <div class="letter-body handwritten">
+                        <h4 class="letter-section-title">What we built:</h4>
+                        <p class="letter-text" id="modalBuilt">Project description</p>
+                        
+                        <h4 class="letter-section-title">What I learned & Key memories:</h4>
+                        <p class="letter-text" id="modalLearned">Stories and key takeaways</p>
+                    </div>
+                    <div class="letter-footer">
+                        <span class="letter-stamp">❀</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: THINGS I'VE BUILT (Index Card Scraps layout - FLAT, NO TILTS) -->
+    <section id="projects" class="projects-section">
+        <div class="section-header reveal-on-scroll">
+            <div class="swirl-wrapper">
+                <!-- Wobbly Swirl Left -->
+                <svg class="title-swirl" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+                <h2 class="section-title">projects</h2>
+                <!-- Wobbly Swirl Right -->
+                <svg class="title-swirl swirl-flipped" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Stickers around projects -->
+        <div class="projects-decorations">
+            <div class="projects-sticker sticker-star">
+                <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50,10 C 50,35 65,50 90,50 C 65,50 50,65 50,90 C 50,65 35,50 10,50 C 35,50 50,35 50,10 Z" />
+                </svg>
+            </div>
+            <div class="projects-sticker sticker-flower">
+                <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="50" cy="50" r="5" fill="#3e3835" />
+                    <path d="M 50,25 C 40,25 35,35 50,45 C 65,35 60,25 50,25 Z" />
+                    <path d="M 50,75 C 40,75 35,65 50,55 C 65,65 60,75 50,75 Z" />
+                    <path d="M 25,50 C 25,40 35,35 45,50 C 35,65 25,60 25,50 Z" />
+                    <path d="M 75,50 C 75,40 65,35 55,50 C 65,65 75,60 75,50 Z" />
+                </svg>
+            </div>
+            <div class="projects-sticker sticker-postmark">
+                <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="50" cy="50" r="42" stroke-dasharray="4,4" />
+                    <circle cx="50" cy="50" r="32" />
+                    <path d="M 30,50 L 70,50 M 35,42 L 65,42 M 35,58 L 65,58" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1: FinTrack -->
+            <div class="project-card-wrapper reveal-on-scroll">
+                <div class="project-paper-scrap">
+                    <div class="washi-tape tape-horizontal tape-yellow"></div>
+                    <div class="project-img-container">
+                        <img src="assets/hackathon1_2.jpg" alt="FinTrack Scoreboard" onerror="this.src='https://api.dicebear.com/7.x/shapes/svg?seed=fin&colors=ffd2dc'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">FinTrack Expense Manager</h3>
+                        <p class="project-desc">An interactive expense tracking dashboard incorporating custom finance modules and gamified budgets, developed for the VIT Void Hackathon (secured Top 5).</p>
+                        <div class="project-learnings">
+                            <strong>Key Learning:</strong> Designing quick, responsive finance components and pitching our 2nd review to judges at 2 AM!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Preventive Rural Health Portal -->
+            <div class="project-card-wrapper">
+                <div class="project-paper-scrap">
+                    <div class="washi-tape tape-horizontal tape-pink"></div>
+                    <div class="project-img-container">
+                        <img src="assets/hackathon2_1.png" alt="Preventive Rural Health Slide" onerror="this.src='https://api.dicebear.com/7.x/shapes/svg?seed=health&colors=e1ecd7'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Rural Preventive Health Portal</h3>
+                        <p class="project-desc">A preventive health awareness platform tailored for rural communities, focusing on women's health awareness and local hospital connectivity, built for Presidency University's National Hackathon.</p>
+                        <div class="project-learnings">
+                            <strong>Key Learning:</strong> Designing accessible user layouts for rural populations, and coding so intensely all day that we completely forgot to eat lunch!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Aadhaar & DBT Literacy Platform -->
+            <div class="project-card-wrapper reveal-on-scroll">
+                <div class="project-paper-scrap">
+                    <div class="washi-tape tape-diagonal tape-sage"></div>
+                    <div class="project-img-container">
+                        <img src="assets/hackathon3.jpg" alt="Aadhaar DBT Portal" onerror="this.src='https://api.dicebear.com/7.x/shapes/svg?seed=dbt&colors=fff4d0'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Aadhaar & DBT Literacy Platform</h3>
+                        <p class="project-desc">An educational web service centering Aadhaar-enabled Direct Benefit Transfer (DBT) registrations to assist rural citizens in understanding government benefits, developed for Smart India Hackathon.</p>
+                        <div class="project-learnings">
+                            <strong>Key Learning:</strong> Structuring simple search tools for public benefit database systems and coding through a 36-hour sprint.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Smart Attendance System -->
+            <div class="project-card-wrapper reveal-on-scroll">
+                <div class="project-paper-scrap">
+                    <div class="washi-tape tape-horizontal tape-blue"></div>
+                    <div class="project-img-container">
+                        <img src="assets/hackathon4.png" alt="Smart Attendance System Screen" onerror="this.src='https://api.dicebear.com/7.x/shapes/svg?seed=attend&colors=dcf2f9'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Attendance System</h3>
+                        <p class="project-desc">A webcam-based automated attendance prototype utilizing face recognition technology to verify student identity and match records instantly, built during my first-ever hackathon.</p>
+                        <div class="project-learnings">
+                            <strong>Key Learning:</strong> Understanding camera image capture buffering and working within a team dynamic for the first time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Titanic Predictor Model -->
+            <div class="project-card-wrapper reveal-on-scroll">
+                <div class="project-paper-scrap">
+                    <div class="washi-tape tape-horizontal tape-lavender"></div>
+                    <div class="project-img-container">
+                        <img src="assets/project_ml.png" alt="Titanic Predictor Model" onerror="this.src='https://api.dicebear.com/7.x/shapes/svg?seed=ml&colors=ffd2dc'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Titanic Predictor Model</h3>
+                        <p class="project-desc">Developed a machine learning model using the Titanic dataset to predict passenger survival. Explored data preprocessing, feature engineering, and classification techniques while learning how machine learning models make predictions from historical data.</p>
+                        <div class="project-learnings">
+                            <strong>Key Learning:</strong> Exploring classification techniques and understanding prediction algorithms.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: SKILLS STAMP ALBUM (Single Group - No Tooltips) -->
+    <section id="skills" class="skills-section">
+        <div class="section-header reveal-on-scroll">
+            <div class="swirl-wrapper">
+                <!-- Wobbly Swirl Left -->
+                <svg class="title-swirl" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+                <h2 class="section-title">languages and tools i have worked with before</h2>
+                <!-- Wobbly Swirl Right -->
+                <svg class="title-swirl swirl-flipped" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="skills-container-single">
+            <!-- Stickers & Sprinkles around stamp album -->
+            <div class="skills-decorations">
+                <!-- Bow Sticker -->
+                <div class="skills-sticker sticker-bow">
+                    <svg viewBox="0 0 100 80" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 50,40 C 35,10 10,15 25,40 C 35,55 45,45 50,40 Z" />
+                        <path d="M 50,40 C 65,10 90,15 75,40 C 65,55 55,45 50,40 Z" />
+                        <circle cx="50" cy="40" r="4" fill="#3e3835" />
+                        <path d="M 48,42 C 40,55 25,70 30,75 C 32,77 40,65 47,45" />
+                        <path d="M 52,42 C 60,55 75,70 70,75 C 68,77 60,65 53,45" />
+                    </svg>
+                </div>
+                <!-- Star Sprinkle 1 -->
+                <div class="skills-sticker sticker-star1">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 50,10 C 50,35 65,50 90,50 C 65,50 50,65 50,90 C 50,65 35,50 10,50 C 35,50 50,35 50,10 Z" />
+                    </svg>
+                </div>
+                <!-- Star Sprinkle 2 -->
+                <div class="skills-sticker sticker-star2">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 50,8 Q 58,38 90,42 Q 60,55 58,88 Q 44,60 10,54 Q 40,42 50,8 Z" />
+                    </svg>
+                </div>
+                <!-- Flower Sprinkle -->
+                <div class="skills-sticker sticker-flower">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="50" cy="50" r="6" fill="#3e3835" />
+                        <path d="M 50,38 C 44,38 42,46 50,46 C 58,46 56,38 50,38 Z" fill="none" />
+                        <path d="M 50,62 C 44,62 42,54 50,54 C 58,54 56,62 50,62 Z" fill="none" />
+                        <path d="M 38,50 C 38,44 46,42 46,50 C 46,58 38,56 38,50 Z" fill="none" />
+                        <path d="M 62,50 C 62,44 54,42 54,50 C 54,58 62,56 62,50 Z" fill="none" />
+                        <path d="M 42,42 C 37,47 45,51 45,45 Z" />
+                        <path d="M 58,58 C 63,53 55,49 55,55 Z" />
+                        <path d="M 58,42 C 63,47 55,51 55,45 Z" />
+                        <path d="M 42,58 C 37,53 45,49 45,55 Z" />
+                    </svg>
+                </div>
+                <!-- Heart Sprinkle -->
+                <div class="skills-sticker sticker-heart">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 50,30 C 60,10 90,15 90,45 C 90,70 65,85 50,90 C 35,85 10,70 10,45 C 10,15 40,10 50,30 Z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="stamp-album-page-single reveal-on-scroll">
+                <div class="stamps-grid-single">
+                    <div class="skill-stamp stamp-pink"><span class="stamp-content">Java</span></div>
+                    <div class="skill-stamp stamp-yellow"><span class="stamp-content">C</span></div>
+                    <div class="skill-stamp stamp-lavender"><span class="stamp-content">Python</span></div>
+                    <div class="skill-stamp stamp-sage"><span class="stamp-content">CSS</span></div>
+                    <div class="skill-stamp stamp-pink"><span class="stamp-content">HTML</span></div>
+                    <div class="skill-stamp stamp-yellow"><span class="stamp-content">TypeScript</span></div>
+                    <div class="skill-stamp stamp-lavender"><span class="stamp-content">React</span></div>
+                    <div class="skill-stamp stamp-sage"><span class="stamp-content">Node.js</span></div>
+                    <div class="skill-stamp stamp-pink"><span class="stamp-content">PostgreSQL</span></div>
+                    <div class="skill-stamp stamp-yellow"><span class="stamp-content">MongoDB</span></div>
+                    <div class="skill-stamp stamp-lavender"><span class="stamp-content">Firebase</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT (Crumpled Envelope Letter) -->
+    <section id="contact" class="contact-section">
+        <div class="section-header reveal-on-scroll" style="margin-bottom: 3.5rem;">
+            <div class="swirl-wrapper">
+                <!-- Wobbly Swirl Left -->
+                <svg class="title-swirl" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+                <h2 class="section-title">contact</h2>
+                <!-- Wobbly Swirl Right -->
+                <svg class="title-swirl swirl-flipped" viewBox="0 0 100 24" fill="none" stroke="#ff5c8a" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M 5,12 C 20,4 25,20 35,12 C 40,8 38,4 32,6 C 28,8 32,16 45,12 C 55,8 60,16 75,12 C 85,8 90,12 95,12" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Stickers around contact -->
+        <div class="contact-decorations">
+            <div class="contact-sticker sticker-star">
+                <svg viewBox="0 0 100 100" fill="none" stroke="#3e3835" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50,8 Q 58,38 90,42 Q 60,55 58,88 Q 44,60 10,54 Q 40,42 50,8 Z" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="envelope-wrapper reveal-on-scroll">
+            <!-- Envelope Flap & Body -->
+            <div class="envelope" id="envelope">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                <!-- Crumpled Lined letter sheet inside -->
+                <div class="letter-sheet crumpled-paper">
+                    <div class="letter-content handwritten">
+                        <h3>hi there!</h3>
+                        <p class="envelope-msg">Thanks for visiting. I'm always open to new opportunities, collaborations, and conversations.</p>
+                        
+                        <div class="envelope-links">
+                            <a href="mailto:pavithra.narayanan2007@gmail.com" class="env-link mail-link">
+                                Email: pavithra.narayanan2007@gmail.com
+                            </a>
+                            <a href="https://linkedin.com/in/pavithra-narayanan007" class="env-link linkedin-link" target="_blank">
+                                LinkedIn: linkedin.com/in/pavithra-narayanan007
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="envelope-hint">Click the envelope to reveal my contact note!</div>
+        </div>
+    </section>
+
+    <!-- Footer page border/stitch details -->
+    <footer class="footer-bar">
+        <p class="footer-tagline">Learning through projects, hackathons, and everything in between.</p>
+        <p class="footer-copyright">© 2025 Pavithra Narayanan · Chennai, India</p>
+    </footer>
+
+</body>
+</html>

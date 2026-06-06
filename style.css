@@ -1,0 +1,1898 @@
+/* ==========================================================================
+   DESIGN SYSTEM & VARIABLES
+   ========================================================================== */
+:root {
+    /* Color Palette - Pink-toned cozy desk surface */
+    --bg-canvas: #fcebeb;          /* Rich cozy pink-toned desk surface */
+    --bg-paper: #fcfaf5;           /* Warm, organic book paper cream */
+    --ink-dark: #1c1a17;           /* True black charcoal ink for readability */
+    --ink-light: #5a514b;          /* Muted charcoal */
+    
+    /* Vibrant Pink Highlight */
+    --vibrant-pink: #ff5c8a;       /* Vibrant matching pink shade */
+    
+    /* Scrapbook Pastels */
+    --pastel-pink: #ffb5c5;
+    --pastel-pink-trans: rgba(255, 181, 197, 0.7);
+    --pastel-lavender: #e2d2ff;
+    --pastel-lavender-trans: rgba(226, 210, 255, 0.7);
+    --pastel-sage: #d6e8c7;
+    --pastel-sage-trans: rgba(214, 232, 199, 0.7);
+    --pastel-yellow: #ffe699;
+    --pastel-yellow-trans: rgba(255, 230, 153, 0.7);
+    --pastel-blue: #cceeff;
+    --pastel-blue-trans: rgba(204, 238, 255, 0.7);
+
+    /* Fonts */
+    --font-serif: 'Playfair Display', serif; /* Main serif font */
+    --font-sans: 'Outfit', sans-serif;
+    --font-hand: 'Patrick Hand', cursive;    /* Notebook handwritten content */
+    --font-diary: 'Caveat', cursive;          /* Envelope letter */
+    --font-notes: 'Playpen Sans', cursive;
+
+    /* Shadows */
+    --shadow-desk-sheet: 0 20px 50px rgba(125, 105, 100, 0.15), 0 5px 15px rgba(125, 105, 100, 0.08);
+    --shadow-polaroid: 0 10px 22px rgba(90, 80, 75, 0.08), 0 2px 5px rgba(90, 80, 75, 0.04);
+    --shadow-sticky: 0 8px 18px rgba(125, 105, 100, 0.08);
+}
+
+/* ==========================================================================
+   BASE STYLES & BACKGROUNDS (No Dot Grids)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-canvas);
+    color: var(--ink-dark);
+    font-family: var(--font-serif); /* Main page font */
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==========================================================================
+   HEADER / NAVIGATION (Top Right aligned)
+   ========================================================================== */
+.scrapbook-header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end; 
+    padding: 2rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.header-nav {
+    display: flex;
+    gap: 2.2rem;
+}
+
+.header-nav a {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--ink-dark);
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+    color: var(--vibrant-pink);
+}
+
+/* ==========================================================================
+   HERO / TYPING ANIMATION (Pink colored titles)
+   ========================================================================== */
+.hero-typing-container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto 3rem auto;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: left;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 3.2rem; 
+    color: var(--vibrant-pink); /* Pink title */
+    font-weight: 700;
+}
+
+.hero-role {
+    font-family: var(--font-serif);
+    font-size: 1.5rem; 
+    color: var(--vibrant-pink); /* Pink role */
+    font-weight: 500;
+}
+
+.cursor {
+    font-weight: 300;
+    color: var(--pastel-pink);
+    animation: blink 0.7s infinite;
+}
+
+.blink-animation {
+    animation: blink 0.7s infinite;
+}
+
+/* ==========================================================================
+   BUTTONS (Outline Buttons)
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--ink-dark);
+    border: 1.5px solid var(--ink-dark);
+    padding: 0.55rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-serif);
+    gap: 6px;
+    margin-right: 0.8rem;
+}
+
+.btn-outline span {
+    transition: transform 0.2s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--pastel-pink-trans);
+    border-color: var(--pastel-pink);
+    transform: translateY(-1px);
+}
+
+.btn-outline:hover span {
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   WASHI TAPE
+   ========================================================================== */
+.washi-tape {
+    position: absolute;
+    height: 26px;
+    width: 90px;
+    clip-path: var(--washi-clip);
+    opacity: 0.8;
+    z-index: 10;
+    backdrop-filter: blur(0.5px);
+}
+
+.tape-pink { background-color: var(--pastel-pink-trans); }
+.tape-lavender { background-color: var(--pastel-lavender-trans); }
+.tape-sage { background-color: var(--pastel-sage-trans); }
+.tape-yellow { background-color: var(--pastel-yellow-trans); }
+.tape-blue { background-color: var(--pastel-blue-trans); }
+
+.tape-horizontal {
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+}
+
+.tape-diagonal {
+    top: -12px;
+    left: -18px;
+    transform: rotate(-28deg);
+}
+
+.tape-diagonal-right {
+    top: -12px;
+    right: -18px;
+    transform: rotate(32deg);
+}
+
+/* ==========================================================================
+   SECTION 1: HERO & ABOUT (The Notebook spread itself)
+   ========================================================================== */
+.about-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10rem 2rem 5rem 2rem;
+    background-color: var(--bg-canvas);
+}
+
+.notebook-container {
+    max-width: 1050px;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+/* Realistic distressed cover backplate protruding behind pages (matching Photo 1) */
+.notebook-container::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    bottom: -12px;
+    left: -14px;
+    right: -14px;
+    background-color: #56463e;
+    background-image: 
+        radial-gradient(rgba(0,0,0,0.12) 15%, transparent 20%),
+        linear-gradient(135deg, #443730 25%, transparent 25%),
+        linear-gradient(225deg, #443730 25%, transparent 25%);
+    background-size: 8px 8px;
+    border-radius: 6px;
+    z-index: 2;
+    box-shadow: 
+        0 25px 55px rgba(80, 65, 60, 0.28), 
+        0 5px 15px rgba(80, 65, 60, 0.15), 
+        inset 0 0 24px rgba(0, 0, 0, 0.65);
+    border: 2px solid #3d322c;
+}
+
+/* Aged paper stack edges protruding inside cover */
+.notebook-container::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -5px;
+    right: -5px;
+    background-color: #ebdcb9;
+    border-radius: 4px;
+    z-index: 3;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.15);
+}
+
+.notebook-spread {
+    display: flex;
+    background-color: var(--bg-paper);
+    border-radius: 3px;
+    border: 1px solid rgba(170, 155, 145, 0.28);
+    position: relative;
+    z-index: 4; 
+    overflow: hidden;
+    background-image: radial-gradient(circle at 10% 20%, rgba(220,200,170,0.12) 0%, transparent 80%);
+}
+
+.notebook-page {
+    flex: 1;
+    padding: 3.5rem 3rem;
+    min-height: 520px;
+    position: relative;
+}
+
+.page-left {
+    border-right: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-right {
+    background-color: var(--bg-paper);
+    /* Soft lined ledger journal paper lines */
+    background-image: linear-gradient(rgba(160, 140, 135, 0.05) 1px, transparent 1px);
+    background-size: 100% 30px;
+    background-position: 0 25px;
+}
+
+.notebook-page-content {
+    height: 100%;
+    position: relative;
+}
+
+.notebook-page-content.handwritten {
+    font-family: var(--font-hand); /* Patrick Hand */
+    font-size: 1.35rem;
+    color: var(--ink-dark);
+    padding-top: 10px;
+    line-height: 30px;
+}
+
+/* Notebook Heading "hi!" in matching pink */
+.notebook-heading {
+    font-family: var(--font-hand);
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    color: var(--vibrant-pink); /* Pink header */
+}
+
+.notebook-p {
+    margin-bottom: 30px;
+}
+
+.notebook-actions {
+    margin-top: 25px;
+    display: flex;
+}
+
+/* Vintage stamp (Removed emoji stamp, using simple layouts) */
+.vintage-stamp {
+    position: absolute;
+    top: -25px;
+    left: -20px;
+    font-size: 2.8rem;
+    opacity: 0.85;
+    transform: rotate(-12deg);
+    user-select: none;
+    z-index: 2;
+}
+
+/* Vertical Stacked Polaroid Photos layout on Left notebook Page */
+.photo-tape-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    height: 100%;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.polaroid-photo {
+    background-color: #fff;
+    padding: 6px 6px 22px 6px;
+    box-shadow: var(--shadow-polaroid);
+    border: 1px solid rgba(200, 190, 185, 0.2);
+    border-radius: 1px;
+    width: 190px; /* Slightly bigger width */
+    position: relative;
+}
+
+.polaroid-photo img {
+    width: 100%;
+    height: 140px; /* Bigger height */
+    object-fit: cover;
+    display: block;
+}
+
+.polaroid-top {
+    transform: rotate(-4deg);
+    z-index: 1;
+}
+
+.polaroid-bottom {
+    transform: rotate(3deg);
+    z-index: 2;
+}
+
+
+/* Spiral Ring Spine */
+.notebook-spiral-spine {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 15px 0;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.spiral-loop {
+    position: relative;
+    width: 34px;
+    height: 12px;
+    background: linear-gradient(180deg, #dcdcdc 0%, #adadad 35%, #ffffff 65%, #7e7e7e 100%);
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(100, 85, 80, 0.12);
+    margin: 4px auto;
+}
+
+.spiral-loop::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 2px;
+    width: 8px;
+    height: 8px;
+    background: #3e3835;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.spiral-loop::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 2px;
+    width: 8px;
+    height: 8px;
+    background: #3e3835;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   STICKER SCROLL PEEKING (Slow and Whimsical)
+   ========================================================================== */
+.notebook-stickers-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1; 
+}
+
+.notebook-sticker {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: auto;
+    cursor: grab;
+    transition: transform 2.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 2s ease;
+}
+
+/* Hidden (default) state: behind the notebook */
+#stickerCat { bottom: 18%; left: 9%; transform: translate(180px, -60px) scale(0.3) rotate(20deg); }
+#stickerWobbly1 { top: 18%; left: 11%; transform: translate(180px, 60px) scale(0.3) rotate(-20deg); }
+#stickerSpiral { top: 22%; right: 14%; transform: translate(-180px, 30px) scale(0.3) rotate(-20deg); }
+#stickerOutlined { bottom: 22%; right: 13%; transform: translate(-180px, -60px) scale(0.3) rotate(20deg); }
+#stickerDoodle { bottom: 38%; right: 11%; transform: translate(-180px, 0) scale(0.3) rotate(-15deg); }
+
+/* Revealed (slid out) state */
+#stickerCat.revealed { transform: translate(-90px, 60px) scale(1) rotate(-8deg); opacity: 0.95; }
+#stickerWobbly1.revealed { transform: translate(-100px, -40px) scale(1) rotate(12deg); opacity: 0.95; }
+#stickerSpiral.revealed { transform: translate(110px, -15px) scale(1) rotate(15deg); opacity: 0.95; }
+#stickerOutlined.revealed { transform: translate(100px, 30px) scale(1) rotate(-10deg); opacity: 0.95; }
+#stickerDoodle.revealed { transform: translate(110px, -5px) scale(1) rotate(15deg); opacity: 0.95; }
+
+/* Continuous wiggling float animations on inner SVGs */
+#stickerCat svg { animation: floatCatIdle 7s ease-in-out infinite alternate; }
+#stickerSpiral svg { animation: floatSpiralIdle 8s ease-in-out infinite alternate; }
+#stickerWobbly1 svg { animation: floatWobblyIdle 6s ease-in-out infinite alternate; }
+#stickerOutlined svg { animation: floatOutlinedIdle 7.5s ease-in-out infinite alternate; }
+#stickerDoodle svg { animation: floatDoodleIdle 6.5s ease-in-out infinite alternate; }
+
+@keyframes floatCatIdle {
+    0% { transform: translateY(-5px) rotate(-2deg); }
+    100% { transform: translateY(5px) rotate(2deg); }
+}
+@keyframes floatSpiralIdle {
+    0% { transform: translateY(-6px) rotate(-3deg); }
+    100% { transform: translateY(6px) rotate(3deg); }
+}
+@keyframes floatWobblyIdle {
+    0% { transform: translateY(-4px) rotate(2deg); }
+    100% { transform: translateY(4px) rotate(-2deg); }
+}
+@keyframes floatOutlinedIdle {
+    0% { transform: translateY(-5px) rotate(-1.5deg); }
+    100% { transform: translateY(5px) rotate(1.5deg); }
+}
+@keyframes floatDoodleIdle {
+    0% { transform: translateY(-6px) rotate(3deg); }
+    100% { transform: translateY(6px) rotate(-3deg); }
+}
+
+/* ==========================================================================
+   SECTION 2: BEYOND THE CLASSROOM (Memories Collage Canvas)
+   ========================================================================== */
+.memories-section {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background-color: var(--bg-canvas);
+    position: relative;
+}
+
+/* Centered title flanked by SVG swirls */
+.memories-section-header {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    z-index: 10;
+    position: relative;
+}
+
+.swirl-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    color: var(--ink-dark);
+    font-weight: 700;
+    text-align: center;
+}
+
+.title-swirl {
+    width: 90px;
+    height: 24px;
+    opacity: 0.8;
+}
+
+.swirl-flipped {
+    transform: scaleX(-1);
+}
+
+/* Collage sheet canvas (No Dot Grids) */
+.scrapbook-collage-canvas {
+    max-width: 1150px;
+    height: 850px;
+    margin: 0 auto;
+    background-color: #fcfbf9; 
+    border: 1px solid rgba(210, 190, 185, 0.4);
+    border-radius: 4px;
+    box-shadow: var(--shadow-desk-sheet);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Memory Clusters */
+.memory-cluster {
+    position: absolute;
+    width: 440px;
+    height: 300px;
+    top: var(--cluster-top);
+    left: var(--cluster-left);
+    cursor: pointer;
+    z-index: 5;
+}
+
+.polaroid-card {
+    position: absolute;
+    width: 215px;
+    background-color: #fff;
+    padding: 10px 10px 28px 10px;
+    box-shadow: var(--shadow-polaroid);
+    border: 1px solid rgba(200, 190, 185, 0.2);
+    border-radius: 1px;
+    transition: transform 0.3s ease, z-index 0.2s;
+    z-index: 5;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: 155px;
+    overflow: hidden;
+}
+
+.polaroid-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.polaroid-label {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--ink-dark);
+    margin-top: 8px;
+}
+
+/* Sticky notes */
+.sticky-note {
+    position: absolute;
+    width: 220px;
+    padding: 1.2rem;
+    box-shadow: var(--shadow-sticky);
+    border-bottom-right-radius: 20px 4px;
+    transition: transform 0.3s ease, z-index 0.2s;
+    z-index: 6;
+    font-family: var(--font-serif);
+    font-size: 0.82rem;
+    color: var(--ink-dark);
+}
+
+.sticky-yellow { background-color: var(--pastel-yellow-trans); border-left: 4px solid var(--pastel-yellow); }
+.sticky-pink { background-color: var(--pastel-pink-trans); border-left: 4px solid var(--pastel-pink); }
+.sticky-blue { background-color: var(--pastel-blue-trans); border-left: 4px solid var(--pastel-blue); }
+
+.sticky-tag {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0 4px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.sticky-note h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    font-family: var(--font-serif); /* Serif style headers */
+    font-weight: 700;
+}
+
+.sticky-footer {
+    text-align: right;
+    font-size: 0.82rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    margin-top: 6px;
+    color: var(--ink-light);
+}
+
+.cluster-void .polaroid-card { left: 0; top: 10px; }
+.cluster-void .sticky-note { left: 180px; top: 20px; }
+
+.cluster-presidency .polaroid-card { left: 190px; top: 10px; }
+.cluster-presidency .sticky-note { left: 0; top: 20px; }
+
+.cluster-sih .polaroid-card { left: 0; top: 10px; }
+.cluster-sih .sticky-note { left: 180px; top: 20px; }
+
+.cluster-attendance .polaroid-card { left: 190px; top: 10px; }
+.cluster-attendance .sticky-note { left: 0; top: 20px; }
+
+/* Cluster Hovers */
+.memory-cluster:hover {
+    z-index: 25;
+}
+.memory-cluster:hover .polaroid-card {
+    transform: translateY(-8px) rotate(0deg) scale(1.02) !important;
+    box-shadow: 0 15px 30px rgba(100, 85, 80, 0.15);
+    z-index: 10;
+}
+.memory-cluster:hover .sticky-note {
+    transform: translateY(-12px) rotate(0deg) scale(1.02) !important;
+    box-shadow: 0 15px 25px rgba(135, 120, 115, 0.15);
+    z-index: 11;
+}
+
+/* Modal letter sheet overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(62, 56, 53, 0.3);
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.letter-container {
+    background-color: var(--bg-paper);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 4px;
+    box-shadow: 0 20px 45px rgba(100, 85, 80, 0.12);
+    border: 1px solid rgba(200, 190, 185, 0.2);
+    transform: translateY(30px) scale(0.96);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    overflow: hidden;
+}
+
+.modal-overlay.open .letter-container {
+    transform: translateY(0) scale(1);
+}
+
+.letter-paper {
+    padding: 2.5rem;
+    position: relative;
+}
+
+.letter-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--ink-light);
+    line-height: 1;
+}
+
+.letter-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.letter-date {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    color: var(--ink-light);
+}
+
+.letter-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--ink-dark);
+    font-weight: 700;
+}
+
+.letter-location {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-light);
+}
+
+.letter-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(200, 190, 185, 0.25);
+    margin: 1rem 0;
+}
+
+.letter-body {
+    font-family: var(--font-serif);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.letter-section-title {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    margin-bottom: 0.2rem;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.letter-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.letter-stamp {
+    font-size: 2.1rem;
+    color: var(--pastel-pink);
+}
+
+/* ==========================================================================
+   SECTION 3: THINGS I'VE BUILT (FLAT project cards - No Tilts)
+   ========================================================================= */
+.projects-section {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background-color: var(--bg-canvas); 
+}
+
+.projects-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3.2rem;
+}
+
+.project-card-wrapper {
+    position: relative;
+    padding-top: 15px;
+    transition: transform 0.25s ease;
+    transform: none !important; 
+}
+
+.project-paper-scrap {
+    background-color: var(--bg-paper);
+    border: 1px solid rgba(200, 190, 185, 0.25);
+    box-shadow: var(--shadow-desk-sheet);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-img-container {
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+    border-bottom: 1px dashed rgba(200, 190, 185, 0.2);
+}
+
+.project-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-content {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.7rem;
+}
+
+.project-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--ink-dark);
+}
+
+.project-desc {
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+}
+
+.project-tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.project-tech-badges span {
+    font-family: var(--font-serif);
+    font-size: 0.7rem;
+    background-color: var(--bg-canvas);
+    color: var(--ink-dark);
+    padding: 0.15rem 0.45rem;
+    border-radius: 8px;
+    border: 1px solid rgba(200, 190, 185, 0.15);
+}
+
+.project-learnings {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    background-color: var(--pastel-yellow-trans);
+    padding: 0.7rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--pastel-yellow);
+    margin-top: auto;
+}
+
+.project-links {
+    margin-top: 0.4rem;
+}
+
+.project-link-btn {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--ink-dark);
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    border: 1px solid rgba(200, 190, 185, 0.3);
+    background-color: var(--bg-paper);
+    transition: all 0.2s ease;
+}
+
+.project-link-btn:hover {
+    background-color: var(--pastel-pink-trans);
+    border-color: var(--pastel-pink);
+}
+
+.project-card-wrapper:hover {
+    transform: translateY(-8px) !important; 
+    z-index: 10;
+}
+
+.project-card-wrapper:hover .project-paper-scrap {
+    box-shadow: 0 20px 40px rgba(135, 120, 115, 0.16);
+}
+
+.project-card-wrapper:hover .project-img-container img {
+    transform: scale(1.04);
+}
+
+/* ==========================================================================
+   SECTION 4: SKILLS STAMP ALBUM (Consolidated list, no hover desc, Playfair)
+   ========================================================================== */
+.skills-section {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background-color: var(--bg-canvas);
+}
+
+.skills-container-single {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stamp-album-page-single {
+    background-color: var(--bg-paper);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: var(--shadow-desk-sheet);
+    border: 1px solid rgba(200, 190, 185, 0.2);
+}
+
+.stamps-grid-single {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+.skill-stamp {
+    position: relative;
+    padding: 10px 16px;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: default; /* No pointer to indicate hover tooltip */
+    transition: transform 0.2s ease;
+    border: 2px dashed rgba(200, 190, 185, 0.3);
+    outline: 4px solid var(--stamp-bg);
+    margin: 4px;
+}
+
+.stamp-pink { --stamp-bg: var(--pastel-pink); background-color: #fff8fa; }
+.stamp-yellow { --stamp-bg: var(--pastel-yellow); background-color: #fffff8; }
+.stamp-lavender { --stamp-bg: var(--pastel-lavender); background-color: #faf9ff; }
+.stamp-sage { --stamp-bg: var(--pastel-sage); background-color: #fafbfa; }
+
+.stamp-content {
+    font-family: var(--font-serif); /* Playfair serif */
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--ink-dark);
+    display: block;
+}
+
+.skill-stamp:hover {
+    transform: translateY(-2px) rotate(1.5deg);
+}
+
+/* Hide tooltip container completely */
+.skill-tooltip {
+    display: none !important;
+}
+
+/* ==========================================================================
+   SECTION 5: CONTACT (Interactive envelope letter - Crumpled Sheet)
+   ========================================================================== */
+.contact-section {
+    min-height: 100vh;
+    padding: 8rem 2rem 6rem 2rem;
+    background-color: var(--bg-canvas);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.envelope-wrapper {
+    position: relative;
+    width: 480px;
+    height: 360px;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--pastel-pink);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 20px 40px rgba(160, 140, 135, 0.12);
+    transition: transform 0.4s ease;
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 240px solid transparent;
+    border-right: 240px solid transparent;
+    border-top: 170px solid var(--pastel-pink);
+    transform-origin: top;
+    transition: transform 0.4s ease 0.2s, z-index 0.2s ease 0.2s;
+    z-index: 4;
+}
+
+.envelope .pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(30deg, #ffc5d1 0%, #ffd2dc 50%, #ffc5d1 100%);
+    border-radius: 0 0 8px 8px;
+    z-index: 3;
+    border-bottom: 3px dashed rgba(255, 255, 255, 0.4);
+    border-left: 3px dashed rgba(255, 255, 255, 0.4);
+    border-right: 3px dashed rgba(255, 255, 255, 0.4);
+}
+
+.envelope .pocket::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 240px solid rgba(255, 210, 220, 0.85);
+    border-top: 180px solid transparent;
+    border-bottom: 180px solid rgba(255, 210, 220, 0.85);
+    border-radius: 0 0 0 8px;
+}
+
+.envelope .pocket::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-right: 240px solid rgba(255, 210, 220, 0.85);
+    border-top: 180px solid transparent;
+    border-bottom: 180px solid rgba(255, 210, 220, 0.85);
+    border-radius: 0 0 8px 0;
+}
+
+/* Crumpled Paper letter sheet */
+.letter-sheet.crumpled-paper {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    width: 440px;
+    height: 310px;
+    background-color: var(--bg-paper);
+    padding: 2.2rem;
+    z-index: 2;
+    transition: transform 0.5s ease 0s;
+    border: 1px solid rgba(195, 180, 170, 0.35);
+    
+    /* Wobbly crumpled border radius */
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    
+    /* Crumpled wobbly shadow details */
+    box-shadow: 
+        inset 0 0 22px rgba(0,0,0,0.06), 
+        3px 8px 18px rgba(125, 105, 100, 0.15), 
+        -1px 4px 6px rgba(0,0,0,0.04);
+        
+    /* Lined journal sheet inside crumpled letter with creases */
+    background-image: 
+        linear-gradient(rgba(160, 140, 135, 0.07) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,235,230,0.65) 100%),
+        /* Creases */
+        linear-gradient(45deg, transparent 48%, rgba(0,0,0,0.03) 50%, rgba(255,255,255,0.15) 52%, transparent 54%),
+        linear-gradient(-35deg, transparent 48%, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.12) 52%, transparent 54%);
+    background-size: 100% 26px, 100% 100%, 100% 100%, 100% 100%;
+}
+
+.letter-sheet.crumpled-paper .letter-content.handwritten {
+    font-family: var(--font-diary); /* Caveat font */
+    font-size: 1.35rem;
+    line-height: 32px; /* Increased line spacing */
+    color: var(--ink-dark);
+}
+
+.letter-sheet.crumpled-paper .letter-content.handwritten h3 {
+    margin-bottom: 18px; /* Extra breathing room */
+    font-size: 1.9rem;
+    color: var(--vibrant-pink);
+    font-weight: 500;
+}
+
+.envelope-msg {
+    margin-bottom: 22px; /* Increased sentence separation */
+}
+
+.envelope-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space out email & linkedin */
+    margin: 20px 0;
+}
+
+.env-link {
+    font-family: var(--font-diary);
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--ink-dark);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+.env-link:hover {
+    color: var(--vibrant-pink);
+}
+
+.envelope-hint {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-light);
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+/* ACTIVE ENVELOPE OPEN STATES */
+.envelope-wrapper.open .envelope {
+    transform: translateY(60px);
+}
+
+.envelope-wrapper.open .envelope::before {
+    transform: rotateX(180deg);
+    z-index: 1; 
+    border-top-color: #ffdce3;
+}
+
+.envelope-wrapper.open .letter-sheet {
+    transform: translateY(-190px) rotate(-1.5deg);
+    z-index: 5; 
+    box-shadow: 
+        inset 0 0 22px rgba(0,0,0,0.05),
+        5px 18px 38px rgba(125, 105, 100, 0.2);
+}
+
+/* ==========================================================================
+   FOOTER & POLISH
+   ========================================================================== */
+.footer-bar {
+    background-color: var(--bg-paper);
+    padding: 2rem;
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-light);
+    border-top: 2px dashed rgba(200, 190, 185, 0.15);
+    position: relative;
+    z-index: 5;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .scrapbook-header {
+        position: static;
+        transform: none;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    .header-nav {
+        gap: 1.2rem;
+    }
+    .hero-typing-container {
+        text-align: center;
+    }
+    .hero-title {
+        font-size: 2.4rem;
+    }
+    .hero-role {
+        font-size: 1.1rem;
+    }
+    
+    /* Notebook collapse */
+    .notebook-spread {
+        flex-direction: column;
+    }
+    .page-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        min-height: 340px;
+        padding: 2rem;
+    }
+    .page-right {
+        min-height: auto;
+        padding: 2rem;
+    }
+    .notebook-spiral-spine {
+        display: none; 
+    }
+    .notebook-stickers-container {
+        display: none; 
+    }
+    
+    /* Scrapbook Canvas collapse */
+    .scrapbook-collage-canvas {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+        padding: 2.5rem 1rem;
+    }
+    .memory-cluster {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .polaroid-card, .sticky-note {
+        position: static !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        transform: none !important;
+    }
+    .canvas-pin {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .envelope-wrapper {
+        width: 100%;
+        max-width: 320px;
+        height: 270px;
+    }
+    .envelope::before {
+        border-left-width: 160px;
+        border-right-width: 160px;
+        border-top-width: 110px;
+    }
+    .envelope .pocket::before {
+        border-left-width: 160px;
+        border-top-width: 120px;
+        border-bottom-width: 120px;
+    }
+    .envelope .pocket::after {
+        border-right-width: 160px;
+        border-top-width: 120px;
+        border-bottom-width: 120px;
+    }
+    .letter-sheet {
+        width: 290px;
+        height: 230px;
+        left: 15px;
+        padding: 1rem;
+    }
+    .letter-sheet .letter-content {
+        font-size: 0.88rem;
+        line-height: 20px;
+    }
+    .envelope-links {
+        margin: 5px 0;
+        gap: 2px;
+    }
+    .envelope-wrapper.open .envelope {
+        transform: translateY(30px);
+    }
+    .envelope-wrapper.open .letter-sheet {
+        transform: translateY(-120px);
+    }
+}
+
+/* ==========================================================================
+   SECTION 2: EDUCATION SECTION STYLES
+   ========================================================================== */
+.education-section {
+    min-height: auto;
+    padding: 6rem 2rem;
+    background-color: var(--bg-canvas);
+    position: relative;
+}
+
+.education-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.education-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.education-decorations .education-sticker {
+    position: absolute;
+    pointer-events: none;
+}
+
+.education-decorations .sticker-bow {
+    top: -25px;
+    left: -20px;
+    width: 50px;
+    height: 40px;
+    transform: rotate(-10deg);
+    animation: floatBow 6s ease-in-out infinite alternate;
+}
+
+.education-decorations .sticker-star {
+    bottom: -15px;
+    right: -10px;
+    width: 35px;
+    height: 35px;
+    transform: rotate(15deg);
+    animation: floatStar 7s ease-in-out infinite alternate;
+}
+
+.education-paper-scrap {
+    background-color: var(--bg-paper);
+    padding: 3rem;
+    border-radius: 4px;
+    box-shadow: var(--shadow-desk-sheet);
+    border: 1px solid rgba(200, 190, 185, 0.25);
+    position: relative;
+}
+
+.education-spread {
+    display: flex;
+    gap: 3rem;
+}
+
+.education-info {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.college-name {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--ink-dark);
+    line-height: 1.3;
+}
+
+.college-loc {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--ink-light);
+}
+
+.degree-badge {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--vibrant-pink);
+    margin-top: 0.4rem;
+}
+
+.duration {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink-light);
+}
+
+.cgpa-box {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--pastel-pink-trans);
+    border: 1px dashed var(--vibrant-pink);
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    margin: 0.4rem 0;
+}
+
+.cgpa-label {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--ink-dark);
+}
+
+.cgpa-value {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--ink-dark);
+}
+
+.edu-desc {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--ink-light);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+.education-subjects {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-left: 2px dashed rgba(200, 190, 185, 0.3);
+    padding-left: 2.5rem;
+}
+
+.subjects-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink-dark);
+}
+
+.subjects-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.subjects-list li {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    color: var(--ink-light);
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+}
+
+.subjects-list li span {
+    color: var(--vibrant-pink);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   SKILLS SECTION DECORATIONS (bows, stars, flower sprinkles)
+   ========================================================================== */
+.skills-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.skills-decorations .skills-sticker {
+    position: absolute;
+    pointer-events: none;
+}
+
+.skills-decorations .sticker-bow {
+    top: -24px;
+    left: -18px;
+    width: 55px;
+    height: 44px;
+    transform: rotate(-12deg);
+    animation: floatBow 6s ease-in-out infinite alternate;
+}
+
+.skills-decorations .sticker-star1 {
+    bottom: -15px;
+    right: -10px;
+    width: 35px;
+    height: 35px;
+    transform: rotate(15deg);
+    animation: floatStar1 7s ease-in-out infinite alternate;
+}
+
+.skills-decorations .sticker-star2 {
+    top: 15px;
+    right: -25px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(-8deg);
+    animation: floatStar2 8s ease-in-out infinite alternate;
+}
+
+.skills-decorations .sticker-flower {
+    bottom: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    transform: rotate(25deg);
+    animation: floatFlower 6.5s ease-in-out infinite alternate;
+}
+
+.skills-decorations .skills-sticker svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Float animations for sprinkles */
+@keyframes floatBow {
+    0% { transform: translateY(0) rotate(-10deg); }
+    100% { transform: translateY(-4px) rotate(-14deg); }
+}
+
+@keyframes floatStar {
+    0% { transform: translateY(0) rotate(15deg); }
+    100% { transform: translateY(-5px) rotate(20deg); }
+}
+
+@keyframes floatStar1 {
+    0% { transform: translateY(0) rotate(15deg); }
+    100% { transform: translateY(-4px) rotate(10deg); }
+}
+
+@keyframes floatStar2 {
+    0% { transform: translateY(0) rotate(-8deg); }
+    100% { transform: translateY(-5px) rotate(-12deg); }
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0) rotate(25deg); }
+    100% { transform: translateY(-3px) rotate(22deg); }
+}
+
+/* Responsive collapse for Education section */
+@media (max-width: 768px) {
+    .education-spread {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .education-subjects {
+        border-left: none;
+        padding-left: 0;
+        border-top: 2px dashed rgba(200, 190, 185, 0.3);
+        padding-top: 1.5rem;
+    }
+    .education-paper-scrap {
+        padding: 2rem 1.5rem;
+    }
+    .college-name {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   SCROLL STICKERS DECORATIONS (Education, Memories, Projects, Skills, Contact)
+   ========================================================================== */
+.education-decorations, .memories-decorations, .projects-decorations, .skills-decorations, .contact-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.education-sticker, .memories-sticker, .projects-sticker, .skills-sticker, .contact-sticker {
+    position: absolute;
+    pointer-events: auto;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 10;
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Sticker Hover Reactions: Quick tactile wiggling bounce! */
+@keyframes stickerWiggleHover {
+    0% { transform: scale(1) rotate(0); }
+    25% { transform: scale(1.15) rotate(-6deg); }
+    75% { transform: scale(1.15) rotate(6deg); }
+    100% { transform: scale(1.1) rotate(0); }
+}
+
+.education-sticker:hover, .memories-sticker:hover, .projects-sticker:hover, .skills-sticker:hover, .contact-sticker:hover {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.education-sticker:hover svg, .memories-sticker:hover svg, .projects-sticker:hover svg, .skills-sticker:hover svg, .contact-sticker:hover svg {
+    animation: stickerWiggleHover 0.4s ease-in-out forwards;
+}
+
+/* Washi Tape globally hover lift */
+.washi-tape {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.washi-tape:hover {
+    transform: rotate(-1deg) scale(1.06) translateY(-3px) !important;
+    opacity: 1 !important;
+    cursor: pointer;
+}
+
+/* Project Cards Washi Tape hover lift */
+.project-card-wrapper:hover .washi-tape {
+    transform: translateX(-50%) translateY(-3px) rotate(-3deg) scale(1.05);
+    opacity: 0.95;
+}
+
+/* Specific stickers coordinates and animation attachments */
+.education-decorations .sticker-bow {
+    top: -25px;
+    left: -20px;
+    width: 50px;
+    height: 40px;
+    transform: rotate(-10deg);
+    animation: floatBow 6s ease-in-out infinite alternate;
+}
+
+.education-decorations .sticker-star {
+    top: 25px;
+    right: -25px;
+    width: 35px;
+    height: 35px;
+    transform: rotate(15deg);
+    animation: floatStar 7s ease-in-out infinite alternate;
+}
+
+.education-decorations .sticker-flower {
+    bottom: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    transform: rotate(20deg);
+    animation: floatFlower 6.5s ease-in-out infinite alternate;
+}
+
+.education-decorations .sticker-heart {
+    bottom: 30px;
+    right: -25px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(-12deg);
+    animation: floatStar2 8s ease-in-out infinite alternate;
+}
+
+.memories-decorations .sticker-bow {
+    top: -30px;
+    left: 10%;
+    width: 50px;
+    height: 40px;
+    transform: rotate(-15deg);
+    animation: floatBow 7s ease-in-out infinite alternate;
+}
+
+.memories-decorations .sticker-flower {
+    bottom: 2%;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    transform: rotate(15deg);
+    animation: floatFlower 8s ease-in-out infinite alternate;
+}
+
+.memories-decorations .sticker-arrow {
+    top: 15%;
+    right: 3%;
+    width: 60px;
+    height: 60px;
+    transform: rotate(120deg);
+    animation: floatStar1 6.5s ease-in-out infinite alternate;
+}
+
+
+
+.projects-decorations .sticker-star {
+    top: -20px;
+    right: 8%;
+    width: 35px;
+    height: 35px;
+    transform: rotate(10deg);
+    animation: floatStar1 6s ease-in-out infinite alternate;
+}
+
+.projects-decorations .sticker-flower {
+    bottom: -20px;
+    left: 5%;
+    width: 45px;
+    height: 45px;
+    transform: rotate(-12deg);
+    animation: floatFlower 7.5s ease-in-out infinite alternate;
+}
+
+.projects-decorations .sticker-postmark {
+    top: 45%;
+    right: 2%;
+    width: 50px;
+    height: 50px;
+    transform: rotate(15deg);
+    animation: floatStar2 9s ease-in-out infinite alternate;
+}
+
+.skills-decorations .sticker-heart {
+    top: 50%;
+    left: -25px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(-15deg);
+    animation: floatStar 7s ease-in-out infinite alternate;
+}
+
+
+
+.contact-decorations .sticker-star {
+    bottom: 12%;
+    right: 15%;
+    width: 35px;
+    height: 35px;
+    transform: rotate(20deg);
+    animation: floatStar2 7s ease-in-out infinite alternate;
+}
+
+
+
+.memories-sticker svg, .projects-sticker svg, .contact-sticker svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Interactive Front-Stack order swaps for clicked polaroids */
+.photo-tape-container .polaroid-photo {
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, z-index 0.1s;
+}
+
+.photo-tape-container .polaroid-photo:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 14px 30px rgba(90, 80, 75, 0.15);
+}
+
+.photo-tape-container .polaroid-photo.front-stack {
+    z-index: 20 !important;
+    transform: scale(1.08) rotate(0deg) !important;
+    box-shadow: 0 18px 38px rgba(90, 80, 75, 0.22) !important;
+}
+
+/* Footer taglines & layout updates */
+.footer-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center;
+    padding: 2.2rem 2rem;
+}
+
+.footer-tagline {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink-light);
+    margin: 0;
+    text-align: center;
+}
+
+.footer-copyright {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--vibrant-pink);
+    margin: 0;
+    text-align: center;
+}
+
+/* Scroll Reveal Animations */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease;
+    will-change: transform, opacity;
+}
+
+.reveal-on-scroll.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Draggable Sticker Helper Classes */
+.dragging-sticker {
+    z-index: 99999 !important;
+    cursor: grabbing !important;
+    transition: none !important; /* Move in real-time without animation delay */
+    filter: drop-shadow(0 14px 28px rgba(90, 80, 75, 0.35)) !important;
+}
+
+.dragging-sticker svg {
+    animation: none !important; /* Stop wiggling/floating animations while dragging */
+}
+
+/* Polaroid Chemical Development Effect (Left Notebook spread photos only) */
+.page-left .polaroid-photo img {
+    filter: contrast(0.15) brightness(1.7) saturate(0) sepia(0.2) blur(1.5px);
+    opacity: 0.65;
+    transition: filter 3.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 3.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.page-left .polaroid-photo.developed img {
+    filter: contrast(1) brightness(1) saturate(1) sepia(0) blur(0px);
+    opacity: 1;
+}
+
+.photo-develop-overlay {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc(100% - 12px);
+    height: 140px;
+    background: linear-gradient(135deg, rgba(255, 230, 200, 0.45) 0%, rgba(255, 200, 220, 0.25) 50%, transparent 100%);
+    mix-blend-mode: color-burn;
+    opacity: 1;
+    transition: opacity 3.5s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.polaroid-photo.developed .photo-develop-overlay {
+    opacity: 0;
+}
+
+/* Click-to-Stamp Ink Decorations */
+.ink-stamp {
+    position: absolute;
+    transform-origin: center;
+    pointer-events: none;
+    z-index: 2;
+    animation: stampRelease 12s ease-in-out forwards;
+}
+
+@keyframes stampRelease {
+    0% {
+        transform: translate(-50%, -50%) scale(2) rotate(var(--stamp-rotation));
+        opacity: 0;
+    }
+    4% {
+        transform: translate(-50%, -50%) scale(1) rotate(var(--stamp-rotation));
+        opacity: var(--stamp-opacity, 0.4);
+    }
+    85% {
+        transform: translate(-50%, -50%) scale(1) rotate(var(--stamp-rotation));
+        opacity: var(--stamp-opacity, 0.4);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.95) rotate(var(--stamp-rotation));
+        opacity: 0;
+    }
+}
+
+
