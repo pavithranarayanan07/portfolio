@@ -1,6 +1,7 @@
 // ==========================================================================
 // HACKATHON MEMORIES DATA (4 Entries)
 // ==========================================================================
+
 const hackathonMemories = [
     {
         title: "VIT Void Hackathon (Fintech Track)",
@@ -9,7 +10,7 @@ const hackathonMemories = [
         teamSize: "4 members",
         role: "Expense Tracker & Finance Module Developer",
         built: "An interactive expense management application incorporating gamified financial modules to help users map budget thresholds.",
-        learned: "Secured Top 5 in the fintech category! We coded fun interactive games and survived to give our 2nd review at 2 AM!"
+        learned: "Secured Top 5 in the fintech category! We coded interactive games and survived to give our second review at 2 AM!"
     },
     {
         title: "National Hackathon",
@@ -17,17 +18,17 @@ const hackathonMemories = [
         location: "Presidency University, Bengaluru",
         teamSize: "4 members",
         role: "Frontend Developer & Product Ideation Lead",
-        built: "Preventive Healthcare Awareness Platform: A portal designed for rural communities focusing on women's health and hospital connectivity.",
-        learned: "Represented our college at a national event. We were so deeply focused on coding all day that we completely forgot to have lunch!"
+        built: "Preventive Healthcare Awareness Platform designed for rural communities, focusing on women's health and hospital connectivity.",
+        learned: "Represented our college at a national event and gained experience working under a tight hackathon deadline."
     },
     {
-        title: "Smart India Hackathon (SIH) - Internal Round",
+        title: "Smart India Hackathon (SIH) – Internal Round",
         date: "2025",
         location: "Chennai",
         teamSize: "6 members",
         role: "Full Stack Developer",
-        built: "Aadhaar & DBT Awareness Platform: A clean web app guiding rural users through Aadhaar-enabled Direct Benefit Transfer services.",
-        learned: "Cleared internal screening rounds and participated in a 36-hour hackathon. Gained hands-on experience designing services for rural populations."
+        built: "Aadhaar & DBT Awareness Platform: a web application guiding rural users through Aadhaar-enabled Direct Benefit Transfer services.",
+        learned: "Cleared the internal screening rounds and participated in a 36-hour hackathon."
     },
     {
         title: "Smart Attendance Tracking System",
@@ -35,10 +36,27 @@ const hackathonMemories = [
         location: "Saveetha Engineering College",
         teamSize: "4 members",
         role: "Face Recognition Developer",
-        built: "Built a webcam-based attendance automation prototype using face recognition concepts to verify and log student attendance.",
-        learned: "My first ever hackathon experience! Learned how camera feeds buffer images, managed a tight sprint deadline, and worked within a team dynamic."
+        built: "A webcam-based attendance automation prototype using face recognition concepts to verify and log student attendance.",
+        learned: "My first hackathon experience! Learned about camera feeds, image processing and teamwork under deadlines."
+    },
+    {
+        title: "SheBuilds Chennai Hack – Code & Challenge 3.0",
+        date: "2026",
+        location: "Rajalakshmi Engineering College, Chennai",
+        built: "Participated under the YUUKKE track and secured a place among the Top 10 teams.",
+        learned: "Qualified for the offline grand finale at Rajalakshmi Engineering College."
+    },
+    {
+        title: "Smart India Hackathon (SIH) 2026 – Internal Round Winner",
+        date: "2026",
+        location: "Rajalakshmi Engineering College, Chennai",
+        teamSize: "Team Hyacinth",
+        role: "Research & Problem Analysis",
+        built: "3D ULPIN Generation and Vertical Property Mapping System – a proposal for mapping individual units in multi-storey buildings.",
+        learned: "Selected among the Top 50 teams out of 555 participating teams. Advanced through PDF screening, online evaluation by judges and the overnight hackathon."
     }
 ];
+
 
 // ==========================================================================
 // HERO SECTION: TYPING ANIMATION (Writing inside Top Left Hero Container)
